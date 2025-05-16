@@ -12,17 +12,17 @@ function startTone() {
     });
 }
 
-const synth = new Tone.MonoSynth({
+const synth = new Tone.PolySynth({
   oscillator: { type: "sawtooth" },
   envelope: { attack: 0.1, decay: 0.2, sustain: 0.5, release: 1 },
 });
 
 const sequence = new Tone.Sequence((time, note) => {
     synth.triggerAttackRelease(note, "2n", time);
-}, ["C4", "E4", "G4", "A4", "G4"], "1n");
+}, ["A4", "G4", "E4","C4", "E4","D4","C4", "C5"], "1n");
 sequence.start(0);
 
-const synthBass = new Tone.Synth().toDestination();
+const synthBass = new Tone.PolySynth().toDestination();
 
 const loop = new Tone.Loop((time) => {
     synthBass.triggerAttackRelease("C0", "8n", time);

@@ -1,36 +1,38 @@
 <!doctype html>
-<html>
-  <head>
-
-    <meta charset="utf-8" />
-
-    <title>Hello Tone</title>
-
-    <!-- The website stylesheet -->
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- Tone.js Library -->
-    <script src="https://unpkg.com/tone"></script>
-
-    <!-- The website JavaScript file -->
-    <script src="script.js" defer></script>
-
-  </head>
-	<body>
-
-
-            <button id="start-button" onclick="startTone()">Start Tone.js</button>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XY Pad with Tone.js</title>
+    <meta charset="utf-8">
+    <title>Sound Synthesizer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/tone"></script>
+    <script src="script.js" defer></script>
+    <style>
+        /* Add the following styles for the XY pad */
+        #xy-pad {
+            width: 300px;   /* Width of XY pad */
+            height: 300px;  /* Height of XY pad */
+            border: 1px solid #000; /* Border for visibility */
+            position: relative;  /* Needed for positioning dot */
+        }
+
+        #dot {
+            position: absolute; /* Positioning for moving dot */
+            width: 20px;
+            height: 20px;
+            background-color: red; /* Color of the dot */
+            border-radius: 50%; /* Make it circular */
+            pointer-events: none; /* Prevent the dot from interfering with mouse events */
+        }
+    </style>
 </head>
 <body>
     <div id="xy-pad">
-      <div id="dot"></div>
+        <div id="dot"></div>
     </div>
-
-	</body>
+    <div>
+        <button id="start-button">Start Sounds</button>
+        <button id="clear-button" onclick="clearSequence()">Clear Sounds</button>
+    </div>
+    <div id="content"></div>
+</body>
 </html>
